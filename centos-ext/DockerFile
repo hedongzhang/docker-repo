@@ -1,0 +1,4 @@
+FROM centos
+RUN yum install -y vim net-tools iproute
+
+CMD ["/bin/bash"]
