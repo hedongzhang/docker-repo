@@ -1,0 +1,15 @@
+FROM centos:7.4.1708
+
+RUN yum install -y vim wget curl net-tools iproute
+
+RUN wget -O mysql-yum.rpm  https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm && rpm -ivh ./mysql-yum.rpm 
+
+RUN yum-config-manager --disable mysql80-community && yum-config-manager --enable mysql57-community && \
+	yum install -y mysql-community-server
+
+VOLUME /var/lib/mysql
+
+EXPOSE 3306
+
+
+CMD ["/usr/sbin/init"]
