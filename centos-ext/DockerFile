@@ -1,4 +1,4 @@
 FROM centos
-RUN yum install -y vim wget curl net-tools iproute
+RUN yum install -y vim wget curl net-tools iproute openssl openssl-devel
 
 CMD ["/bin/bash"]
