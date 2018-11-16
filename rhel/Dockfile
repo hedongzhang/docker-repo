@@ -1,0 +1,9 @@
+FROM registry.access.redhat.com/rhel7.4
+
+ADD centos.repo /etc/yum.repos.d/
+
+RUN yum install -y  wget tar gzip gcc openssh-server
+
+EXPOSE 22
+
+CMD ["/usr/sbin/sshd","-D"]
